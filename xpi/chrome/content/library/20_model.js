@@ -3277,7 +3277,7 @@ models.getEnables = function(ps){
  */
 models.getPostConfig = function(config, name, ps){
 	var c = config[name] || {};
-	return (ps.favorite && ps.favorite.name==name)? c.favorite : c[ps.type];
+	return (ps.favorite && RegExp('^' + ps.favorite.name + '(\\s|$)').test(name))? c.favorite : c[ps.type];
 }
 
 
